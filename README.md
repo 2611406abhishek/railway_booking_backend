@@ -178,11 +178,6 @@ Server will run at: **http://127.0.0.1:8000/**
 
 ---
 
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## 📧 Contact
-For queries, feel free to reach out at: [your_email@example.com]
+For queries, feel free to reach out at: [abhishek.soni2501@example.com]
 
