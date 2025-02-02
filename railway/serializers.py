@@ -51,23 +51,17 @@ class BookingSerializer(serializers.ModelSerializer):
         train_id = validated_data.pop('train_id')
 
         try:
-            # Start an atomic transaction to prevent race conditions
             with transaction.atomic():
-                # Lock the train row for update; any other concurrent transaction must wait.
                 train = Train.objects.select_for_update().get(id=train_id)
                 
-                # Check seat availability
                 if train.available_seats <= 0:
                     raise serializers.ValidationError("No seats available on this train.")
                 
-                # Use an F expression to safely decrement the available seats
                 train.available_seats = F('available_seats') - 1
                 train.save()
 
-                # Refresh from database to get the updated value
                 train.refresh_from_db()
 
-                # Create the booking record
                 booking = Booking.objects.create(user=user, train=train)
                 return booking
 

@@ -1,18 +1,14 @@
 import os
 from pathlib import Path
 
-# Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'your-secret-key'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,10 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Third-party apps
     'rest_framework',
     'rest_framework.authtoken',
-    # Your app
     'railway',
 ]
 
@@ -47,7 +41,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # Required by DRF browsable API
+                'django.template.context_processors.request', 
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -61,9 +55,9 @@ WSGI_APPLICATION = 'railway_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway_db',          # Change to your database name
-        'USER': 'postgres',            # Change to your DB user
-        'PASSWORD': 'psql@1234',   # Change to your DB password
+        'NAME': 'railway_db',        
+        'USER': 'postgres',           
+        'PASSWORD': 'psql@1234',  
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -77,7 +71,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-    # Additional validators as needed…
 ]
 
 LANGUAGE_CODE = 'en-us'
